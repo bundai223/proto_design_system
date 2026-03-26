@@ -45,8 +45,8 @@ The initial implementation must provide template coverage for these reader-facin
 
 ## Implementation Boundary
 
-- The supported runtime surface is the Hugo theme structure under `layouts/`, `partials/`, `assets/`, `static/`, and theme metadata files.
-- The shared base layout is anchored at `layouts/_default/baseof.html`, with non-post fallback in `layouts/_default/single.html`, post detail in `layouts/posts/single.html`, and taxonomy fallback in `layouts/_default/taxonomy.html` plus `layouts/_default/term.html`.
+- The supported runtime surface is the Hugo theme structure under `hugo_themes/proto_design_system/`.
+- The shared base layout is anchored at `hugo_themes/proto_design_system/layouts/_default/baseof.html`, with non-post fallback in `hugo_themes/proto_design_system/layouts/_default/single.html`, post detail in `hugo_themes/proto_design_system/layouts/posts/single.html`, and taxonomy fallback in `hugo_themes/proto_design_system/layouts/_default/taxonomy.html` plus `hugo_themes/proto_design_system/layouts/_default/term.html`.
 - The existing TypeScript design-system package remains a supporting asset source, primarily for token generation and design reference.
 - AMP-specific templates are explicitly outside the initial contract.
 

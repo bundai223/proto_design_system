@@ -176,7 +176,7 @@ export function main() {
 
   fs.writeFileSync(path.resolve(out), css, "utf-8");
   console.log(`✅ Written to: ${path.resolve(out)}`);
-  console.log(`\n📋 Hugo の layouts/partials/head.html などで読み込み:`);
+  console.log(`\n📋 Hugo theme の layouts/partials/head.html などで読み込み:`);
   console.log(`   <link rel="stylesheet" href="{{ "theme/tokens.css" | relURL }}">`);
 }
 

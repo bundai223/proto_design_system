@@ -52,44 +52,46 @@ specs/002-hugo-theme/
 │   └── tokens.css
 ├── export-css.ts
 ├── package.json
-├── layouts/
-│   ├── _default/
-│   │   ├── baseof.html
-│   │   ├── list.html
-│   │   ├── single.html
-│   │   └── taxonomy.html
-│   ├── index.html
-│   ├── posts/
-│   │   ├── list.html
-│   │   └── single.html
-│   ├── tags/
-│   │   ├── list.html
-│   │   └── term.html
-│   ├── categories/
-│   │   ├── list.html
-│   │   └── term.html
-│   ├── page/
-│   │   └── single.html
-│   └── partials/
-│       ├── head.html
-│       ├── header.html
-│       ├── footer.html
-│       ├── post-card.html
-│       ├── post-meta.html
-│       ├── taxonomy-links.html
-│       └── toc.html
-├── assets/
-│   └── css/
-│       ├── theme.css
-│       └── prose.css
-├── static/
-│   └── theme/
-│       └── tokens.css
-├── theme.toml
+├── hugo_themes/
+│   └── proto_design_system/
+│       ├── layouts/
+│       │   ├── _default/
+│       │   │   ├── baseof.html
+│       │   │   ├── list.html
+│       │   │   ├── single.html
+│       │   │   └── taxonomy.html
+│       │   ├── index.html
+│       │   ├── posts/
+│       │   │   ├── list.html
+│       │   │   └── single.html
+│       │   ├── tags/
+│       │   │   ├── list.html
+│       │   │   └── term.html
+│       │   ├── categories/
+│       │   │   ├── list.html
+│       │   │   └── term.html
+│       │   ├── page/
+│       │   │   └── single.html
+│       │   └── partials/
+│       │       ├── head.html
+│       │       ├── header.html
+│       │       ├── footer.html
+│       │       ├── post-card.html
+│       │       ├── post-meta.html
+│       │       ├── taxonomy-links.html
+│       │       └── toc.html
+│       ├── assets/
+│       │   └── css/
+│       │       ├── theme.css
+│       │       └── prose.css
+│       ├── static/
+│       │   └── theme/
+│       │       └── tokens.css
+│       └── theme.toml
 └── README.md
 ```
 
-**Structure Decision**: Keep the repository as a single project. Add Hugo-native theme directories at the root while retaining the existing token export tooling. The implementation centers on `layouts/`, shared `partials/`, and CSS assets, with exported design tokens copied into a Hugo-consumable static path.
+**Structure Decision**: Keep the repository as a single project, but place the Hugo theme under `hugo_themes/proto_design_system/` so the whole theme can be copied or vendored into another blog repository as one unit. The implementation still relies on Hugo-native layouts, shared partials, CSS assets, and exported token CSS.
 
 ## Phase 0: Research Outcomes
 

@@ -13,24 +13,26 @@ If the theme consumes the repository's exported tokens, generate them first:
 ```bash
 npm install
 npm run export:css:all
-cp dist/tokens.css static/theme/tokens.css
+cp dist/tokens.css hugo_themes/proto_design_system/static/theme/tokens.css
 ```
 
 Expected outcome:
 
 - `dist/tokens.css` is generated successfully
-- `static/theme/tokens.css` is refreshed with the exported token set
+- `hugo_themes/proto_design_system/static/theme/tokens.css` is refreshed with the exported token set
 
 ## Wire the Theme into a Hugo Site
 
-Copy or map the planned theme files into the Hugo site/theme structure:
+Copy or map `hugo_themes/proto_design_system/` into the Hugo site as `themes/proto_design_system/`.
+
+The carried theme contains:
 
 - `layouts/`
 - `assets/css/`
 - `static/theme/tokens.css`
 - `theme.toml`
 
-If the theme uses the generated token file directly, place the generated CSS where Hugo can publish it as a static asset and ensure `layouts/partials/head.html` links to `theme/tokens.css`.
+If the theme uses the generated token file directly, place the generated CSS where Hugo can publish it as a static asset and ensure `themes/proto_design_system/layouts/partials/head.html` links to `theme/tokens.css`.
 
 ## Run Local Hugo Verification
 
@@ -66,7 +68,7 @@ Recommended repository-side checks for this feature:
 
 ```bash
 npm run export:css:all
-cp dist/tokens.css static/theme/tokens.css
+cp dist/tokens.css hugo_themes/proto_design_system/static/theme/tokens.css
 ```
 
 Recommended Hugo-side checks:
