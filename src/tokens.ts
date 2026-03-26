@@ -1,6 +1,6 @@
 import type { Theme, ThemeName } from "./types";
-import { kawaiiTheme } from "./tokens.kawaii";
-import { monoTheme } from "./tokens.mono";
+import { kawaiiTheme } from "./themes/tokens.kawaii";
+import { monoTheme } from "./themes/tokens.mono";
 
 export { monoTheme, kawaiiTheme };
 

@@ -10,8 +10,8 @@ import {
   ThemeSwitcher,
   themes,
   useTheme,
-} from "./index";
-import type { ThemeName } from "./types";
+} from "../index";
+import type { ThemeName } from "../src/types";
 
 const TABS = ["overview", "colors", "type", "components", "spacing"] as const;
 type Tab = (typeof TABS)[number];

@@ -4,8 +4,9 @@
   "description": "Personal React design system with theme tokens and Hugo CSS export.",
   "type": "module",
   "files": [
-    "*.ts",
-    "*.tsx",
+    "src/",
+    "index.ts",
+    "export-css.ts",
     "*.md",
     "*.html",
     "*.css"

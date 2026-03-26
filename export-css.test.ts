@@ -12,8 +12,8 @@
  */
 
 import { describe, it, expect } from "vitest";
-import { monoTheme } from "./tokens.mono";
-import { kawaiiTheme } from "./tokens.kawaii";
+import { monoTheme } from "./src/themes/tokens.mono";
+import { kawaiiTheme } from "./src/themes/tokens.kawaii";
 import {
   toKebabCase,
   themeToCssVars,
@@ -22,7 +22,7 @@ import {
   parseArgs,
   themes,
 } from "./export-css";
-import type { Theme } from "./types";
+import type { Theme } from "./src/types";
 
 // テスト用に固定タイムスタンプを使う（スナップショットを安定させるため）
 const FIXED_TS = "2024-01-01T00:00:00.000Z";

@@ -18,9 +18,9 @@
 import fs   from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { monoTheme } from "./tokens.mono";
-import { kawaiiTheme } from "./tokens.kawaii";
-import type { Theme } from "./types";
+import { monoTheme } from "./src/themes/tokens.mono";
+import { kawaiiTheme } from "./src/themes/tokens.kawaii";
+import type { Theme } from "./src/types";
 
 // ============================================================
 // 全テーマの登録

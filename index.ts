@@ -1,4 +1,1 @@
-export * from "./types";
-export * from "./tokens";
-export * from "./ThemeContext";
-export * from "./components";
+export * from "./src/index";

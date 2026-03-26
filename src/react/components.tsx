@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "./ThemeContext";
-import { themes } from "./tokens";
+import { themes } from "../tokens";
 import type {
   BadgeProps,
   ButtonProps,
@@ -9,7 +9,7 @@ import type {
   InputProps,
   SectionProps,
   ThemeName,
-} from "./types";
+} from "../types";
 
 type ButtonStyleMap = Record<
   NonNullable<ButtonProps["variant"]>,

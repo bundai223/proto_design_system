@@ -13,5 +13,5 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["*.ts", "*.tsx", "demo/**/*.ts", "demo/**/*.tsx"]
+  "include": ["*.ts", "*.tsx", "src/**/*.ts", "src/**/*.tsx", "demo/**/*.ts", "demo/**/*.tsx"]
 }

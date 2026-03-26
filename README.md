@@ -2,18 +2,18 @@
 
 React 向けの個人用デザインシステムです。テーマトークン、`ThemeProvider`、基本コンポーネント、Hugo向けCSS変数エクスポートに加えて、Hugo ブログテーマのテンプレート断片も同じリポジトリで管理しています。
 
-consumer が依存してよい面はルート公開エントリポイントだけです。`components.tsx` や `tokens.mono.ts` のような内部ファイルへの直接 import はサポートしません。
+consumer が依存してよい面はルート公開エントリポイントだけです。`src/react/components.tsx` や `src/themes/tokens.mono.ts` のような内部ファイルへの直接 import はサポートしません。
 
-## Files
+## Structure
 
 - `index.ts`: React向け公開エントリポイント
-- `types.ts`: トークンとコンポーネント props の型定義
-- `tokens.ts`: `mono` / `kawaii` テーマの公開
-- `ThemeContext.tsx`: `ThemeProvider` と `useTheme`
-- `components.tsx`: `Button`, `Card`, `Badge`, `Input`, `Section`, `Divider`, `ThemeSwitcher`
+- `src/types.ts`: トークンとコンポーネント props の型定義
+- `src/tokens.ts`: `mono` / `kawaii` テーマの公開
+- `src/themes/`: テーマ定義
+- `src/react/ThemeContext.tsx`: `ThemeProvider` と `useTheme`
+- `src/react/components.tsx`: `Button`, `Card`, `Badge`, `Input`, `Section`, `Divider`, `ThemeSwitcher`
 - `export-css.ts`: Hugo 向けに CSS カスタムプロパティを生成する CLI
-- `DesignSystem.tsx`: ライブラリを使ったショーケースコンポーネント
-- `demo/`: `npm run demo` で起動する、`index.ts` だけを使う supported demo
+- `demo/`: `npm run demo` で起動する supported demo とショーケース
 - `hugo_themes/proto_design_system/`: Hugo テーマ実装
 
 ## Usage
