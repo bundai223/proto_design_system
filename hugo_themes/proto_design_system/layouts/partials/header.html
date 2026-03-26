@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="{{ site.Home.RelPermalink }}">
+      <span class="site-brand__mark">PS</span>
+      <span class="site-brand__text">{{ or site.Title "Blog" }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li><a href="{{ site.Home.RelPermalink }}">Home</a></li>
+        {{ with site.GetPage "/posts" }}
+          <li><a href="{{ .RelPermalink }}">Posts</a></li>
+        {{ end }}
+        {{ with site.GetPage "/tags" }}
+          <li><a href="{{ .RelPermalink }}">Tags</a></li>
+        {{ end }}
+        {{ with site.GetPage "/categories" }}
+          <li><a href="{{ .RelPermalink }}">Categories</a></li>
+        {{ end }}
+        {{ range site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>

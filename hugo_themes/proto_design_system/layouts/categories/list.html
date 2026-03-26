@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <section class="page-hero page-hero--compact">
+    <div class="page-hero__inner">
+      <p class="eyebrow">Categories</p>
+      <h1 class="page-title">{{ or .Title "Categories" }}</h1>
+      <p class="page-description">Browse topic groupings across the archive.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="taxonomy-grid">
+      {{ range .Data.Terms.Alphabetical }}
+        <article class="taxonomy-card">
+          <p class="taxonomy-card__eyebrow">Category</p>
+          <h2 class="taxonomy-card__title">
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+          </h2>
+          <p class="taxonomy-card__count">{{ .Count }} post{{ if ne .Count 1 }}s{{ end }}</p>
+        </article>
+      {{ else }}
+        <div class="empty-state">
+          <h2>No categories yet</h2>
+          <p>Category pages will appear once posts include category metadata.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

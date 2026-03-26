@@ -1,0 +1,24 @@
+{{ $pageTitle := cond .IsHome (or site.Title .Title) (printf "%s | %s" .Title (or site.Title "Blog")) }}
+{{ $description := "" }}
+{{ with .Description }}
+  {{ $description = . }}
+{{ else }}
+  {{ with .Summary }}
+    {{ $description = . | plainify | truncate 160 }}
+  {{ else }}
+    {{ $description = or site.Params.description site.Title }}
+  {{ end }}
+{{ end }}
+{{ $themeCss := resources.Get "css/theme.css" }}
+{{ $proseCss := resources.Get "css/prose.css" }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="stylesheet" href="{{ "theme/tokens.css" | relURL }}">
+{{ with $themeCss }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+{{ with $proseCss }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}

@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <section class="page-hero page-hero--compact">
+    <div class="page-hero__inner">
+      <p class="eyebrow">Taxonomy</p>
+      <h1 class="page-title">{{ .Title }}</h1>
+      <p class="page-description">Browse terms and jump into related posts across the archive.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="taxonomy-grid">
+      {{ range .Data.Terms.Alphabetical }}
+        <article class="taxonomy-card">
+          <p class="taxonomy-card__eyebrow">{{ $.Title }}</p>
+          <h2 class="taxonomy-card__title">
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+          </h2>
+          <p class="taxonomy-card__count">{{ .Count }} post{{ if ne .Count 1 }}s{{ end }}</p>
+        </article>
+      {{ else }}
+        <div class="empty-state">
+          <h2>No terms yet</h2>
+          <p>This taxonomy does not currently contain any published terms.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

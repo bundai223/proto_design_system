@@ -1,0 +1,12 @@
+name = "Proto Design System Blog"
+license = "UNLICENSED"
+licenselink = "https://github.com/bundai223/proto_design_system"
+description = "A Hugo blog theme that reuses the Proto Design System token language for listings, posts, taxonomies, and shared pages."
+homepage = "https://github.com/bundai223/proto_design_system"
+tags = ["blog", "design-system", "minimal", "personal-site"]
+features = ["posts", "taxonomy", "responsive", "design-tokens"]
+min_version = "0.120.0"
+
+[author]
+  name = "bundai223"
+  homepage = "https://github.com/bundai223"

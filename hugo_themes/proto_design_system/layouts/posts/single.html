@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <article class="post-layout">
+    <header class="post-header">
+      <p class="eyebrow">Post</p>
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{ partial "post-meta.html" . }}
+      {{ partial "taxonomy-links.html" . }}
+    </header>
+
+    <div class="post-body-layout">
+      {{ partial "toc.html" . }}
+      <div class="post-body prose">
+        {{ .Content }}
+      </div>
+    </div>
+  </article>
+{{ end }}

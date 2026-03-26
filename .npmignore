@@ -5,13 +5,8 @@ specs/
 .agents/
 .specify/
 coverage/
+public/
+resources/_gen/
 files.zip
 *.log
 AGENTS.md
-DESIGN_SYSTEM_SPEC.md
-SPEC.md
-baseof.html
-blog.css
-footer-extra.html
-head-extra.html
-hugo.toml

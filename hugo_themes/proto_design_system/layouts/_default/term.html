@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  <section class="page-hero page-hero--compact">
+    <div class="page-hero__inner">
+      <p class="eyebrow">{{ .Data.Plural }}</p>
+      <h1 class="page-title">{{ .Title }}</h1>
+      <p class="page-description">
+        {{ len $pages }} related post{{ if ne (len $pages) 1 }}s{{ end }} in this term.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="post-grid">
+      {{ range $pages }}
+        {{ partial "post-card.html" . }}
+      {{ else }}
+        <div class="empty-state">
+          <h2>No related posts</h2>
+          <p>Posts linked to this term will appear here once available.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

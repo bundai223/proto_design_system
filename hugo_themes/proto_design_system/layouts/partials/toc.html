@@ -1,0 +1,9 @@
+{{ if .Params.toc }}
+  {{ $toc := .TableOfContents }}
+  {{ if $toc }}
+    <aside class="toc-box" aria-label="Table of contents">
+      <p class="toc-box__title">Contents</p>
+      {{ $toc }}
+    </aside>
+  {{ end }}
+{{ end }}
