@@ -23,9 +23,9 @@
 
 **Purpose**: Align repository metadata, ignore rules, and build configuration with the planned reusable library shape
 
-- [ ] T001 Verify and finalize ignore coverage in `.gitignore` for Node/Vite/TypeScript/generated artifact patterns
-- [ ] T002 Update package metadata and root scripts in `package.json` to reflect the supported library entry point, demo commands, and token export commands
-- [ ] T003 [P] Align TypeScript and Vite configuration in `tsconfig.json` and `vite.config.ts` with the root-library-plus-demo structure
+- [X] T001 Verify and finalize ignore coverage in `.gitignore` for Node/Vite/TypeScript/generated artifact patterns
+- [X] T002 Update package metadata and root scripts in `package.json` to reflect the supported library entry point, demo commands, and token export commands
+- [X] T003 [P] Align TypeScript and Vite configuration in `tsconfig.json` and `vite.config.ts` with the root-library-plus-demo structure
 
 ---
 
@@ -35,10 +35,10 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Define the supported export boundary in `index.ts`, `tokens.ts`, and `types.ts`
-- [ ] T005 [P] Normalize theme and provider architecture in `tokens.mono.ts`, `tokens.kawaii.ts`, and `ThemeContext.tsx`
-- [ ] T006 [P] Make the component primitives consistent with the supported type contracts in `components.tsx` and `types.ts`
-- [ ] T007 Remove obsolete fragment implementations and ensure only the supported library/demo assets remain by updating `DesignSystem.tsx`, deleting legacy files, and reviewing repository root structure
+- [X] T004 Define the supported export boundary in `index.ts`, `tokens.ts`, and `types.ts`
+- [X] T005 [P] Normalize theme and provider architecture in `tokens.mono.ts`, `tokens.kawaii.ts`, and `ThemeContext.tsx`
+- [X] T006 [P] Make the component primitives consistent with the supported type contracts in `components.tsx` and `types.ts`
+- [X] T007 Remove obsolete fragment implementations and ensure only the supported library/demo assets remain by updating `DesignSystem.tsx`, deleting legacy files, and reviewing repository root structure
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -54,15 +54,15 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T008 [P] [US1] Add public API surface assertions in `export-css.test.ts` or a new root-level test file covering supported exports and root-entry usage
-- [ ] T009 [P] [US1] Add consumer usage verification through the supported sample flow in `DesignSystem.tsx` and `demo/main.tsx`
+- [X] T008 [P] [US1] Add public API surface assertions in `export-css.test.ts` or a new root-level test file covering supported exports and root-entry usage
+- [X] T009 [P] [US1] Add consumer usage verification through the supported sample flow in `DesignSystem.tsx` and `demo/main.tsx`
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Refine the supported root consumer example in `DesignSystem.tsx` to consume the library only through `./index`
-- [ ] T011 [P] [US1] Update the in-repo consumer wiring in `demo/main.tsx` and `demo/index.html` so the demo exercises the supported library surface
-- [ ] T012 [US1] Complete reusable export and import cleanup in `index.ts`, `ThemeContext.tsx`, `components.tsx`, `tokens.ts`, and `types.ts`
-- [ ] T013 [US1] Verify reusable theme switching behavior for `mono` and `kawaii` in `ThemeContext.tsx`, `tokens.mono.ts`, `tokens.kawaii.ts`, and `components.tsx`
+- [X] T010 [P] [US1] Refine the supported root consumer example in `DesignSystem.tsx` to consume the library only through `./index`
+- [X] T011 [P] [US1] Update the in-repo consumer wiring in `demo/main.tsx` and `demo/index.html` so the demo exercises the supported library surface
+- [X] T012 [US1] Complete reusable export and import cleanup in `index.ts`, `ThemeContext.tsx`, `components.tsx`, `tokens.ts`, and `types.ts`
+- [X] T013 [US1] Verify reusable theme switching behavior for `mono` and `kawaii` in `ThemeContext.tsx`, `tokens.mono.ts`, `tokens.kawaii.ts`, and `components.tsx`
 
 **Checkpoint**: User Story 1 should now provide a reusable, consumer-safe entry point and working demo consumer
 
@@ -76,13 +76,13 @@
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T014 [P] [US2] Add a documentation-oriented validation task description in `specs/001-design-system-foundation/quickstart.md` and `specs/001-design-system-foundation/contracts/public-api.md` covering supported usage expectations
+- [X] T014 [P] [US2] Add a documentation-oriented validation task description in `specs/001-design-system-foundation/quickstart.md` and `specs/001-design-system-foundation/contracts/public-api.md` covering supported usage expectations
 
 ### Implementation for User Story 2
 
-- [ ] T015 [US2] Update consumer-facing guidance in `README.md` to document the root entry point, supported demo, validation commands, and Hugo token export usage
-- [ ] T016 [US2] Align implementation and spec-facing documentation in `specs/001-design-system-foundation/quickstart.md`, `specs/001-design-system-foundation/contracts/public-api.md`, and `specs/001-design-system-foundation/plan.md`
-- [ ] T017 [US2] Review and remove any remaining ambiguous or legacy naming/path references in `README.md`, `package.json`, `export-css.ts`, and repository root files
+- [X] T015 [US2] Update consumer-facing guidance in `README.md` to document the root entry point, supported demo, validation commands, and Hugo token export usage
+- [X] T016 [US2] Align implementation and spec-facing documentation in `specs/001-design-system-foundation/quickstart.md`, `specs/001-design-system-foundation/contracts/public-api.md`, and `specs/001-design-system-foundation/plan.md`
+- [X] T017 [US2] Review and remove any remaining ambiguous or legacy naming/path references in `README.md`, `package.json`, `export-css.ts`, and repository root files
 
 **Checkpoint**: User Story 2 should now make the supported surface and intended usage path obvious
 
@@ -96,14 +96,14 @@
 
 ### Tests for User Story 3 ⚠️
 
-- [ ] T018 [P] [US3] Expand `export-css.test.ts` to cover token export expectations and theme key consistency for the supported themes
-- [ ] T019 [P] [US3] Add or refine validation command coverage in `package.json` and `README.md` so the required workflow is executable end-to-end
+- [X] T018 [P] [US3] Expand `export-css.test.ts` to cover token export expectations and theme key consistency for the supported themes
+- [X] T019 [P] [US3] Add or refine validation command coverage in `package.json` and `README.md` so the required workflow is executable end-to-end
 
 ### Implementation for User Story 3
 
-- [ ] T020 [US3] Finalize the token export CLI behavior in `export-css.ts` and related scripts in `package.json`
-- [ ] T021 [US3] Ensure validation tooling is aligned in `vitest.config.ts`, `tsconfig.json`, and `vite.config.ts`
-- [ ] T022 [US3] Run and verify the required workflow using `package.json` commands and record the supported sequence in `README.md`
+- [X] T020 [US3] Finalize the token export CLI behavior in `export-css.ts` and related scripts in `package.json`
+- [X] T021 [US3] Ensure validation tooling is aligned in `vitest.config.ts`, `tsconfig.json`, and `vite.config.ts`
+- [X] T022 [US3] Run and verify the required workflow using `package.json` commands and record the supported sequence in `README.md`
 
 **Checkpoint**: User Story 3 should now provide a reliable validation workflow for future changes
 
@@ -113,9 +113,9 @@
 
 **Purpose**: Final cleanup and cross-story verification
 
-- [ ] T023 [P] Reconcile generated feature docs with the shipped implementation in `specs/001-design-system-foundation/spec.md`, `specs/001-design-system-foundation/plan.md`, and `specs/001-design-system-foundation/quickstart.md`
-- [ ] T024 Run the full quickstart validation flow and sanity-check generated outputs in `dist/tokens.css` and `dist/demo/`
-- [ ] T025 [P] Review the repository root for unsupported leftovers and finalize deletions/renames across `README.md`, `DesignSystem.tsx`, `demo/`, and removed legacy fragment files
+- [X] T023 [P] Reconcile generated feature docs with the shipped implementation in `specs/001-design-system-foundation/spec.md`, `specs/001-design-system-foundation/plan.md`, and `specs/001-design-system-foundation/quickstart.md`
+- [X] T024 Run the full quickstart validation flow and sanity-check generated outputs in `dist/tokens.css` and `dist/demo/`
+- [X] T025 [P] Review the repository root for unsupported leftovers and finalize deletions/renames across `README.md`, `DesignSystem.tsx`, `demo/`, and removed legacy fragment files
 
 ---
 
