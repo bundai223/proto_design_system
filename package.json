@@ -1,0 +1,45 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "Personal React design system with theme tokens and Hugo CSS export.",
+  "type": "module",
+  "files": [
+    "*.ts",
+    "*.tsx",
+    "*.md",
+    "*.html",
+    "*.css"
+  ],
+  "exports": {
+    ".": "./index.ts",
+    "./export-css": "./export-css.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:update": "vitest run --update-snapshots",
+    "demo": "vite",
+    "demo:build": "vite build",
+    "validate": "npm run typecheck && npm test && npm run demo:build && npm run export:css:all",
+    "export:css": "tsx export-css.ts",
+    "export:css:kawaii": "tsx export-css.ts --theme kawaii",
+    "export:css:all": "tsx export-css.ts --all"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^7.0.0",
+    "vitest": "^1.0.0"
+  },
+  "license": "UNLICENSED"
+}

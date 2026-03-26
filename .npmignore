@@ -1,0 +1,17 @@
+node_modules/
+dist/
+demo/
+specs/
+.agents/
+.specify/
+coverage/
+files.zip
+*.log
+AGENTS.md
+DESIGN_SYSTEM_SPEC.md
+SPEC.md
+baseof.html
+blog.css
+footer-extra.html
+head-extra.html
+hugo.toml
