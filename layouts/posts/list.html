@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <p class="eyebrow">Posts</p>
+      <h1 class="page-title">{{ or .Title "Posts" }}</h1>
+      {{ with .Content }}
+        <div class="page-lead prose">{{ . }}</div>
+      {{ else }}
+        <p class="page-description">
+          Browse published posts with readable metadata and Hugo-generated summaries.
+        </p>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="post-grid">
+      {{ range $pages }}
+        {{ partial "post-card.html" . }}
+      {{ else }}
+        <div class="empty-state">
+          <h2>No published posts yet</h2>
+          <p>Once posts exist in <code>content/posts</code>, they will appear here.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

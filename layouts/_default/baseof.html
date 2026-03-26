@@ -1,0 +1,19 @@
+<!doctype html>
+<html
+  lang="{{ or site.Language.Lang site.LanguageCode "ja" }}"
+  data-theme="{{ or .Params.theme site.Params.theme "mono" }}"
+>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="site-body kind-{{ .Kind }}{{ with .Type }} type-{{ . }}{{ end }}">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="site-shell">
+      {{ partial "header.html" . }}
+      <main id="main-content" class="site-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+  </body>
+</html>

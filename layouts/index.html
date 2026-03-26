@@ -1,0 +1,79 @@
+{{ define "main" }}
+  {{ $posts := first 6 (where site.RegularPages.ByDate.Reverse "Type" "posts") }}
+  <section class="page-hero home-hero">
+    <div class="page-hero__inner">
+      <p class="eyebrow">Home</p>
+      <h1 class="page-title">{{ or site.Title "Blog" }}</h1>
+      {{ with .Content }}
+        <div class="page-lead prose">{{ . }}</div>
+      {{ else }}
+        <p class="page-description">
+          Published writing, taxonomy browsing, and shared pages in one consistent theme.
+        </p>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="content-section__header">
+      <h2 class="section-title">Latest Posts</h2>
+      {{ with site.GetPage "/posts" }}
+        <a class="section-link" href="{{ .RelPermalink }}">All posts</a>
+      {{ end }}
+    </div>
+
+    <div class="post-grid">
+      {{ range $posts }}
+        {{ partial "post-card.html" . }}
+      {{ else }}
+        <div class="empty-state">
+          <h2>No published posts yet</h2>
+          <p>Add content under <code>content/posts</code> to populate the homepage.</p>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="section-nav">
+      {{ with site.GetPage "/posts" }}
+        <a class="section-link" href="{{ .RelPermalink }}">Browse all posts</a>
+      {{ end }}
+      {{ with site.GetPage "/tags" }}
+        <a class="section-link" href="{{ .RelPermalink }}">Browse tags</a>
+      {{ end }}
+      {{ with site.GetPage "/categories" }}
+        <a class="section-link" href="{{ .RelPermalink }}">Browse categories</a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="content-section content-section--split">
+    <div class="surface-panel">
+      <p class="eyebrow">Explore</p>
+      <h2 class="section-title">Tags</h2>
+      <div class="taxonomy-chip-list">
+        {{ with site.Taxonomies.tags }}
+          {{ range first 8 .ByCount }}
+            <a class="taxonomy-chip" href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a>
+          {{ end }}
+        {{ else }}
+          <span class="muted-copy">Tags will appear here once posts are categorized.</span>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="surface-panel">
+      <p class="eyebrow">Navigate</p>
+      <h2 class="section-title">Pages</h2>
+      <p class="section-copy">
+        Non-post pages keep the same navigation and typography as the post archive.
+      </p>
+      {{ with site.Menus.main }}
+        <ul class="simple-list">
+          {{ range first 5 . }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

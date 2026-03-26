@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article class="generic-page">
+    <header class="page-hero page-hero--compact">
+      <div class="page-hero__inner">
+        {{ if not .IsHome }}
+          <p class="eyebrow">Page</p>
+        {{ end }}
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ with .Description }}
+          <p class="page-description">{{ . }}</p>
+        {{ end }}
+      </div>
+    </header>
+
+    <div class="page-content prose">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

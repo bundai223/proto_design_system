@@ -5,6 +5,9 @@ node_modules/
 dist/
 .vite/
 coverage/
+public/
+resources/_gen/
+.hugo_build.lock
 *.tsbuildinfo
 
 # Logs

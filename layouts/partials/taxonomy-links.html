@@ -1,0 +1,24 @@
+{{ $tags := .GetTerms "tags" }}
+{{ $categories := .GetTerms "categories" }}
+{{ if or $tags $categories }}
+  <div class="taxonomy-links">
+    {{ with $tags }}
+      <div class="taxonomy-links__group">
+        <div class="taxonomy-chip-list">
+          {{ range . }}
+            <a class="taxonomy-chip" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+    {{ with $categories }}
+      <div class="taxonomy-links__group">
+        <div class="taxonomy-chip-list">
+          {{ range . }}
+            <a class="taxonomy-chip taxonomy-chip--plain" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
