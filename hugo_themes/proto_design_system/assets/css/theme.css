@@ -89,22 +89,8 @@ pre {
 .site-brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--ds-scale-sm);
   font-weight: 700;
   text-decoration: none;
-}
-
-.site-brand__mark {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid var(--ds-color-gray300);
-  border-radius: var(--ds-radius-sm);
-  background: transparent;
-  color: var(--ds-color-gray700);
-  font-family: var(--ds-font-mono);
-  font-size: 0.82rem;
 }
 
 .site-nav__list,
