@@ -72,7 +72,7 @@ npm run export:css:all
 - `hugo_themes/proto_design_system/layouts/page/single.html`: non-post page
 - `hugo_themes/proto_design_system/layouts/partials/`: header / footer / meta / taxonomy / toc / card
 - `hugo_themes/proto_design_system/assets/css/theme.css`, `hugo_themes/proto_design_system/assets/css/prose.css`: shared styling
-- `hugo_themes/proto_design_system/static/theme/tokens.css`: Hugo がそのまま配信する token CSS
+- `hugo_themes/proto_design_system/static/theme/tokens.css`: Hugo がそのまま配信する token CSS。`export-css.ts` 由来の生成物
 - `hugo_themes/proto_design_system/theme.toml`: theme metadata
 
 ### Theme Setup
@@ -83,7 +83,63 @@ npm run export:css:all
 cp dist/tokens.css hugo_themes/proto_design_system/static/theme/tokens.css
 ```
 
+`hugo_themes/proto_design_system/static/theme/tokens.css` は手編集しません。`export-css.ts` で生成した `dist/tokens.css` を同期する前提です。
+
 別リポジトリへ持っていくときは、`hugo_themes/proto_design_system/` ディレクトリごとコピーするか、そのまま submodule / subtree で取り込みます。ブログ側では `themes/proto_design_system/` に置いて `theme = "proto_design_system"` を指定します。`baseof.html` は `site.Params.theme` または page front matter の `theme` を見て `data-theme` を決めるので、未指定時は `mono` が使われます。
+
+### Use As Theme
+
+別リポジトリの Hugo ブログに反映する最小手順です。
+
+1. このリポジトリ側で token CSS を生成して同期する
+
+```bash
+npm install
+npm run export:css:all
+cp dist/tokens.css hugo_themes/proto_design_system/static/theme/tokens.css
+```
+
+2. ブログリポジトリへ theme を配置する
+
+```bash
+cp -R hugo_themes/proto_design_system /path/to/your-blog/themes/proto_design_system
+```
+
+3. ブログ側の `hugo.toml` か `config.toml` に theme を設定する
+
+```toml
+theme = "proto_design_system"
+
+[params]
+  theme = "mono"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+```
+
+4. ブログ側で必要な前提を確認する
+
+- posts は `content/posts/*.md`
+- 記事本文は `.Content` で通常表示できること
+- shortcode を使うならブログ側に shortcode 実装があること
+- `/images/...` を使うなら `static/images/` などに実体があること
+
+5. ブログ側で起動して確認する
+
+```bash
+hugo
+hugo server
+```
+
+6. `kawaii` を使いたい場合はブログ側 config の `params.theme` を切り替える
+
+```toml
+[params]
+  theme = "kawaii"
+```
+
+運用上は、theme 本体は `themes/proto_design_system/` にまとめて持ち込み、見た目調整時だけこのリポジトリで更新して再同期するのが扱いやすいです。
 
 ### Validation
 
