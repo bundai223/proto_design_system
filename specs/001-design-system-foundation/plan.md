@@ -47,6 +47,7 @@ specs/001-design-system-foundation/
 
 ```text
 .
+├── .npmignore
 ├── index.ts
 ├── types.ts
 ├── tokens.ts
@@ -57,14 +58,19 @@ specs/001-design-system-foundation/
 ├── DesignSystem.tsx
 ├── export-css.ts
 ├── export-css.test.ts
+├── public-api.test.ts
 ├── demo/
+│   ├── App.tsx
 │   ├── index.html
 │   ├── main.tsx
 │   └── styles.css
 ├── dist/
+│   ├── demo/
 │   └── tokens.css
 ├── README.md
+├── AGENTS.md
 ├── package.json
+├── package-lock.json
 ├── tsconfig.json
 ├── vite.config.ts
 └── vitest.config.ts

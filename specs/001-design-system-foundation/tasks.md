@@ -54,7 +54,7 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [X] T008 [P] [US1] Add public API surface assertions in `export-css.test.ts` or a new root-level test file covering supported exports and root-entry usage
+- [X] T008 [P] [US1] Add public API surface assertions in `public-api.test.ts` covering supported exports and root-entry usage
 - [X] T009 [P] [US1] Add consumer usage verification through the supported sample flow in `DesignSystem.tsx` and `demo/main.tsx`
 
 ### Implementation for User Story 1
@@ -82,7 +82,7 @@
 
 - [X] T015 [US2] Update consumer-facing guidance in `README.md` to document the root entry point, supported demo, validation commands, and Hugo token export usage
 - [X] T016 [US2] Align implementation and spec-facing documentation in `specs/001-design-system-foundation/quickstart.md`, `specs/001-design-system-foundation/contracts/public-api.md`, and `specs/001-design-system-foundation/plan.md`
-- [X] T017 [US2] Review and remove any remaining ambiguous or legacy naming/path references in `README.md`, `package.json`, `export-css.ts`, and repository root files
+- [X] T017 [US2] Review and remove any remaining ambiguous or legacy naming/path references in `README.md`, `package.json`, `export-css.ts`, `specs/001-design-system-foundation/plan.md`, and `specs/001-design-system-foundation/tasks.md`
 
 **Checkpoint**: User Story 2 should now make the supported surface and intended usage path obvious
 
@@ -156,7 +156,7 @@
 
 ```bash
 # Write the US1 verification work in parallel:
-Task: "Add public API surface assertions in export-css.test.ts or a new root-level test file covering supported exports and root-entry usage"
+Task: "Add public API surface assertions in public-api.test.ts covering supported exports and root-entry usage"
 Task: "Add consumer usage verification through the supported sample flow in DesignSystem.tsx and demo/main.tsx"
 
 # Then implement the consumer-facing updates in parallel:
