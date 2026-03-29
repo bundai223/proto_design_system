@@ -327,9 +327,13 @@ pre {
 
 .discussion-section__title {
   margin: 0;
-  font-family: var(--ds-font-display);
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
-  line-height: 1.15;
+  color: var(--ds-color-gray600);
+  font-family: var(--ds-font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .discussion-section__status {
