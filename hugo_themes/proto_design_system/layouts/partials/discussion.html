@@ -18,27 +18,28 @@
       {{ if $shortname }}
         {{ $fallbackId := printf "discussion-status-%s" .File.UniqueID }}
         {{ $threadId := printf "discussion-thread-%s" .File.UniqueID }}
+        {{ $embedSrc := printf "https://%s.disqus.com/embed.js" $shortname }}
         <p id="{{ $fallbackId }}" class="discussion-section__status" hidden>
           Discussion is temporarily unavailable.
         </p>
         <div id="{{ $threadId }}" class="discussion-section__embed"></div>
         <script>
           (function() {
-            var fallback = document.getElementById({{ $fallbackId | jsonify }});
-            var thread = document.getElementById({{ $threadId | jsonify }});
+            var fallback = document.getElementById({{ $fallbackId }});
+            var thread = document.getElementById({{ $threadId }});
 
             if (!fallback || !thread) {
               return;
             }
 
             window.disqus_config = function() {
-              this.page.url = {{ .Permalink | jsonify }};
-              this.page.identifier = {{ .File.Path | jsonify }};
-              this.page.title = {{ .Title | jsonify }};
+              this.page.url = {{ .Permalink }};
+              this.page.identifier = {{ .File.Path }};
+              this.page.title = {{ .Title }};
             };
 
             var script = document.createElement("script");
-            script.src = "https://" + {{ $shortname | jsonify }} + ".disqus.com/embed.js";
+            script.src = {{ $embedSrc }};
             script.async = true;
             script.setAttribute("data-timestamp", String(+new Date()));
             script.onerror = function() {
