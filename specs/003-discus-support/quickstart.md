@@ -30,8 +30,9 @@ cp dist/tokens.css hugo_themes/proto_design_system/static/theme/tokens.css
 3. Run repository validation that should remain green for the feature work.
 
 ```bash
+npm run typecheck
 npm test
-npm run lint
+npm run export:css:all
 ```
 
 4. Build or serve the Hugo site with representative content.

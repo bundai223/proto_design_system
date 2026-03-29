@@ -23,9 +23,9 @@
 
 **Purpose**: Confirm the current post-layout integration points and the documentation surface for the clarified discussion feature
 
-- [ ] T001 Review the current post detail rendering path in `hugo_themes/proto_design_system/layouts/posts/single.html` and `hugo_themes/proto_design_system/layouts/_default/baseof.html`
-- [ ] T002 [P] Review current theme styling entry points in `hugo_themes/proto_design_system/assets/css/theme.css` and `hugo_themes/proto_design_system/assets/css/prose.css`
-- [ ] T003 [P] Review current theme usage and setup notes in `./README.md`
+- [X] T001 Review the current post detail rendering path in `hugo_themes/proto_design_system/layouts/posts/single.html` and `hugo_themes/proto_design_system/layouts/_default/baseof.html`
+- [X] T002 [P] Review current theme styling entry points in `hugo_themes/proto_design_system/assets/css/theme.css` and `hugo_themes/proto_design_system/assets/css/prose.css`
+- [X] T003 [P] Review current theme usage and setup notes in `./README.md`
 
 ---
 
@@ -35,10 +35,10 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Add documented site-level discussion default and post-level override configuration notes to `./README.md`
-- [ ] T005 Create the shared discussion rendering partial in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
-- [ ] T006 Wire the discussion partial into the post layout after the article body in `hugo_themes/proto_design_system/layouts/posts/single.html`
-- [ ] T007 Add baseline discussion section styling hooks in `hugo_themes/proto_design_system/assets/css/theme.css`
+- [X] T004 Add documented site-level discussion default and post-level override configuration notes to `./README.md`
+- [X] T005 Create the shared discussion rendering partial in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
+- [X] T006 Wire the discussion partial into the post layout after the article body in `hugo_themes/proto_design_system/layouts/posts/single.html`
+- [X] T007 Add baseline discussion section styling hooks in `hugo_themes/proto_design_system/assets/css/theme.css`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -52,11 +52,11 @@
 
 ### Implementation for User Story 1
 
-- [ ] T008 [US1] Implement published-post eligibility and post-specific discussion context resolution in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
-- [ ] T009 [US1] Render the discussion section after the article body without disrupting existing post content in `hugo_themes/proto_design_system/layouts/posts/single.html`
-- [ ] T010 [P] [US1] Refine discussion section layout and spacing for the post detail view in `hugo_themes/proto_design_system/assets/css/theme.css`
-- [ ] T011 [US1] Document the supported published-post discussion setup flow in `./README.md`
-- [ ] T012 [US1] Validate the published-post discussion MVP against `specs/003-discus-support/quickstart.md`
+- [X] T008 [US1] Implement published-post eligibility and post-specific discussion context resolution in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
+- [X] T009 [US1] Render the discussion section after the article body without disrupting existing post content in `hugo_themes/proto_design_system/layouts/posts/single.html`
+- [X] T010 [P] [US1] Refine discussion section layout and spacing for the post detail view in `hugo_themes/proto_design_system/assets/css/theme.css`
+- [X] T011 [US1] Document the supported published-post discussion setup flow in `./README.md`
+- [X] T012 [US1] Validate the published-post discussion MVP against `specs/003-discus-support/quickstart.md`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -70,11 +70,11 @@
 
 ### Implementation for User Story 2
 
-- [ ] T013 [US2] Implement site-level discussion default handling in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
-- [ ] T014 [US2] Implement per-post discussion override handling in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
-- [ ] T015 [US2] Ensure unsupported pages and non-published content remain discussion-free by constraining the render path in `hugo_themes/proto_design_system/layouts/partials/discussion.html` and `hugo_themes/proto_design_system/layouts/posts/single.html`
-- [ ] T016 [US2] Document site-default and per-post override behavior in `./README.md`
-- [ ] T017 [US2] Validate visibility-control scenarios against `specs/003-discus-support/quickstart.md`
+- [X] T013 [US2] Implement site-level discussion default handling in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
+- [X] T014 [US2] Implement per-post discussion override handling in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
+- [X] T015 [US2] Ensure unsupported pages and non-published content remain discussion-free by constraining the render path in `hugo_themes/proto_design_system/layouts/partials/discussion.html` and `hugo_themes/proto_design_system/layouts/posts/single.html`
+- [X] T016 [US2] Document site-default and per-post override behavior in `./README.md`
+- [X] T017 [US2] Validate visibility-control scenarios against `specs/003-discus-support/quickstart.md`
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -88,10 +88,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T018 [US3] Implement unavailable-discussion fallback behavior with embed suppression and short-message rendering in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
-- [ ] T019 [P] [US3] Adjust discussion styling for disabled and unavailable states in `hugo_themes/proto_design_system/assets/css/theme.css`
-- [ ] T020 [US3] Document disabled and unavailable discussion behavior in `./README.md`
-- [ ] T021 [US3] Validate graceful-degradation scenarios against `specs/003-discus-support/quickstart.md`
+- [X] T018 [US3] Implement unavailable-discussion fallback behavior with embed suppression and short-message rendering in `hugo_themes/proto_design_system/layouts/partials/discussion.html`
+- [X] T019 [P] [US3] Adjust discussion styling for disabled and unavailable states in `hugo_themes/proto_design_system/assets/css/theme.css`
+- [X] T020 [US3] Document disabled and unavailable discussion behavior in `./README.md`
+- [X] T021 [US3] Validate graceful-degradation scenarios against `specs/003-discus-support/quickstart.md`
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -101,10 +101,10 @@
 
 **Purpose**: Final consistency, documentation alignment, and repository-wide validation across all stories
 
-- [ ] T022 [P] Align `specs/003-discus-support/quickstart.md` with the final implementation details
-- [ ] T023 [P] Review `specs/003-discus-support/contracts/discussion-surface.md` against the implemented theme behavior
-- [ ] T024 Run repository validation commands documented in `./README.md`
-- [ ] T025 Run end-to-end feature validation from `specs/003-discus-support/quickstart.md`
+- [X] T022 [P] Align `specs/003-discus-support/quickstart.md` with the final implementation details
+- [X] T023 [P] Review `specs/003-discus-support/contracts/discussion-surface.md` against the implemented theme behavior
+- [X] T024 Run repository validation commands documented in `./README.md`
+- [X] T025 Run end-to-end feature validation from `specs/003-discus-support/quickstart.md`
 
 ---
 
