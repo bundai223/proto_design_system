@@ -11,22 +11,20 @@
     {{ $shortname := or site.Params.disqusShortname site.Config.Services.Disqus.Shortname site.DisqusShortname }}
     <section class="discussion-section" aria-labelledby="discussion-title">
       <div class="discussion-section__header">
-        <p class="eyebrow">Discussion</p>
-        <h2 id="discussion-title" class="discussion-section__title">Comments for this post</h2>
+        <h2 id="discussion-title" class="discussion-section__title">Comments</h2>
       </div>
 
       {{ if $shortname }}
         {{ $fallbackId := printf "discussion-status-%s" .File.UniqueID }}
-        {{ $threadId := printf "discussion-thread-%s" .File.UniqueID }}
         {{ $embedSrc := printf "https://%s.disqus.com/embed.js" $shortname }}
         <p id="{{ $fallbackId }}" class="discussion-section__status" hidden>
           Discussion is temporarily unavailable.
         </p>
-        <div id="{{ $threadId }}" class="discussion-section__embed"></div>
+        <div id="disqus_thread" class="discussion-section__embed"></div>
         <script>
           (function() {
             var fallback = document.getElementById({{ $fallbackId }});
-            var thread = document.getElementById({{ $threadId }});
+            var thread = document.getElementById("disqus_thread");
 
             if (!fallback || !thread) {
               return;
