@@ -70,7 +70,7 @@ npm run export:css:all
 - `hugo_themes/proto_design_system/layouts/posts/single.html`: 記事詳細
 - `hugo_themes/proto_design_system/layouts/tags/` と `hugo_themes/proto_design_system/layouts/categories/`: taxonomy
 - `hugo_themes/proto_design_system/layouts/page/single.html`: non-post page
-- `hugo_themes/proto_design_system/layouts/partials/`: header / footer / meta / taxonomy / toc / card
+- `hugo_themes/proto_design_system/layouts/partials/`: header / footer / meta / taxonomy / toc / card / discussion
 - `hugo_themes/proto_design_system/assets/css/theme.css`, `hugo_themes/proto_design_system/assets/css/prose.css`: shared styling
 - `hugo_themes/proto_design_system/static/theme/tokens.css`: Hugo がそのまま配信する token CSS。`export-css.ts` 由来の生成物
 - `hugo_themes/proto_design_system/theme.toml`: theme metadata
@@ -125,6 +125,34 @@ theme = "proto_design_system"
 - shortcode を使うならブログ側に shortcode 実装があること
 - `/images/...` を使うなら `static/images/` などに実体があること
 
+### Discussion Support
+
+Hugo theme の post detail では、published post に対して discussion block を article body の後ろに表示できます。表示可否は site-level default と per-post override で制御します。
+
+ブログ側 config 例:
+
+```toml
+[params]
+  theme = "mono"
+  discussionEnabled = true
+  disqusShortname = "your-shortname"
+```
+
+post front matter 例:
+
+```toml
+title = "My Post"
+date = 2026-03-30T00:00:00+09:00
+discussion = false
+```
+
+- `params.discussionEnabled = true` で supported published post に discussion を出す
+- page front matter の `discussion = false` でその post だけ disable できる
+- page front matter の `discussion = true` を使うと site default が false でもその post だけ enable できる
+- discussion 対応は initial scope では published post のみ
+- discussion block は article body の後ろに出る
+- `disqusShortname` が未設定、または embed script が読めない場合は embed を出さずに短い unavailable message を表示する
+
 5. ブログ側で起動して確認する
 
 ```bash
@@ -162,5 +190,8 @@ hugo server
 - list view は `.Title` / `.Date` / `.Summary` を使い、raw filename を見せない
 - draft post が通常の published-facing view に出ない
 - post detail で title/date/body、optional tags/categories、`toc: true`、shortcode、`/images/...` が読める
+- post detail で discussion を有効にした published post は body の後ろに post-specific discussion が出る
+- site default と per-post override で discussion 表示を制御できる
+- unavailable 時は embed が隠れ、短い unavailable message が出る
 - tags / categories が辿れる
 - non-post page でも同じ header / footer / tone が維持される

@@ -312,6 +312,35 @@ pre {
   min-width: 0;
 }
 
+.discussion-section {
+  display: grid;
+  gap: var(--ds-scale-md);
+  max-width: 52rem;
+  padding: var(--ds-scale-lg) 0 0;
+  border-top: 1px solid var(--ds-color-gray200);
+}
+
+.discussion-section__header {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.discussion-section__title {
+  margin: 0;
+  font-family: var(--ds-font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  line-height: 1.15;
+}
+
+.discussion-section__status {
+  margin: 0;
+  color: var(--ds-color-gray700);
+}
+
+.discussion-section__embed {
+  min-height: 8rem;
+}
+
 .toc-box {
   position: sticky;
   top: 6.4rem;
@@ -393,6 +422,10 @@ pre {
 
   .taxonomy-links {
     padding-top: 0;
+  }
+
+  .discussion-section {
+    padding-top: var(--ds-scale-md);
   }
 }
 

@@ -1,0 +1,66 @@
+{{ if and (eq .Kind "page") (eq .Type "posts") (not .Draft) }}
+  {{ $siteDefault := default false site.Params.discussionEnabled }}
+  {{ $overrideValue := .Params.discussion }}
+  {{ $discussionEnabled := $siteDefault }}
+
+  {{ if ne $overrideValue nil }}
+    {{ $discussionEnabled = $overrideValue }}
+  {{ end }}
+
+  {{ if $discussionEnabled }}
+    {{ $shortname := or site.Params.disqusShortname site.Config.Services.Disqus.Shortname site.DisqusShortname }}
+    <section class="discussion-section" aria-labelledby="discussion-title">
+      <div class="discussion-section__header">
+        <p class="eyebrow">Discussion</p>
+        <h2 id="discussion-title" class="discussion-section__title">Comments for this post</h2>
+      </div>
+
+      {{ if $shortname }}
+        {{ $fallbackId := printf "discussion-status-%s" .File.UniqueID }}
+        {{ $threadId := printf "discussion-thread-%s" .File.UniqueID }}
+        {{ $embedSrc := printf "https://%s.disqus.com/embed.js" $shortname }}
+        <p id="{{ $fallbackId }}" class="discussion-section__status" hidden>
+          Discussion is temporarily unavailable.
+        </p>
+        <div id="{{ $threadId }}" class="discussion-section__embed"></div>
+        <script>
+          (function() {
+            var fallback = document.getElementById({{ $fallbackId }});
+            var thread = document.getElementById({{ $threadId }});
+
+            if (!fallback || !thread) {
+              return;
+            }
+
+            window.disqus_config = function() {
+              this.page.url = {{ .Permalink }};
+              this.page.identifier = {{ .File.Path }};
+              this.page.title = {{ .Title }};
+            };
+
+            var script = document.createElement("script");
+            script.src = {{ $embedSrc }};
+            script.async = true;
+            script.setAttribute("data-timestamp", String(+new Date()));
+            script.onerror = function() {
+              thread.hidden = true;
+              fallback.hidden = false;
+            };
+
+            try {
+              document.head.appendChild(script);
+            } catch (error) {
+              thread.hidden = true;
+              fallback.hidden = false;
+            }
+          })();
+        </script>
+        <noscript>
+          <p class="discussion-section__status">Discussion is temporarily unavailable.</p>
+        </noscript>
+      {{ else }}
+        <p class="discussion-section__status">Discussion is temporarily unavailable.</p>
+      {{ end }}
+    </section>
+  {{ end }}
+{{ end }}
