@@ -52,6 +52,58 @@ npm run export:css:all
 `npm run demo` でブラウザ確認用のショーケースを起動できます。静的出力が必要なら `npm run demo:build` を使います。
 `npm run validate` は `typecheck`、`test`、`demo:build`、`export:css:all` を順に実行します。
 
+## GitHub Pages Showcase
+
+このリポジトリの interactive showcase は GitHub Pages で公開する前提です。想定 URL は `https://bundai223.github.io/proto_design_system/` です。
+
+### Build Contract
+
+```bash
+npm run demo:build
+```
+
+- publish 対象は `dist/demo/`
+- entry point は `dist/demo/index.html`
+- default base path は `/proto_design_system/`
+- 別の公開先に変える場合は build 時に `PAGES_BASE_PATH` で上書きする
+
+```bash
+PAGES_BASE_PATH=/custom-path/ npm run demo:build
+```
+
+`vite.config.ts` が build-time で base path を解決するので、`demo/` 配下の React コンポーネント側を修正せずに公開先を切り替えられます。
+
+### GitHub Actions Deployment
+
+GitHub Pages 用 workflow は `.github/workflows/deploy-pages.yml` です。
+
+- `main` への push で自動 deploy する
+- Actions タブから manual dispatch でも再実行できる
+- GitHub Actions 上では `dist/demo/` だけを Pages artifact として publish する
+
+Repository Settings > Pages では source を `GitHub Actions` に設定します。
+
+### Verification
+
+local:
+
+```bash
+npm run demo:build
+sed -n '1,40p' dist/demo/index.html
+```
+
+確認ポイント:
+
+- built asset URL が `/proto_design_system/assets/...` のように repo path 配下を向く
+- `dist/demo/index.html` と `dist/demo/assets/` が生成される
+- `PAGES_BASE_PATH` を変えても `demo/` 配下のコードを編集せずに build できる
+
+hosted:
+
+- `main` へ merge または push して workflow を走らせる
+- 必要なら Actions から manual dispatch で再 deploy する
+- 公開 URL を開いて blank screen や broken asset が無いことを確認する
+
 ## Hugo 連携
 
 ```bash
